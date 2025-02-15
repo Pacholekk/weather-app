@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { WeatherData } from "./types/weather";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity] = useState<string>("");
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
+  const API_KEY = "84c469508adb281751e4accece391766";
+
+  const fetchWeather = async () => {
+    try {
+      setLoading(true);
+      setError("");
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      if (!response.ok) {
+        throw new Error("Coulnd't find a city");
+      }
+      const data = await response.json();
+      setWeather(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Eror has occur");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Weather</h1>
+    </div>
+  );
 }
-
-export default App
+export default App;

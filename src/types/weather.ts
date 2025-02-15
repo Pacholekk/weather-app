@@ -8,9 +8,9 @@ export interface WeatherData {
     main: string;
     description: string;
     icon: string;
-  }[]; // tablica obiektów
+  }[]; // object array
   wind: {
     speed: number;
   };
-  name: string;
+  name: string; // name of the city
 }
