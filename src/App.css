@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.search-container input {
+  height: 20px;
+  width: 200px;
+}

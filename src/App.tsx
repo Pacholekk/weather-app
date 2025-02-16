@@ -32,11 +32,12 @@ function App() {
   return (
     <div className="App">
       <h1>Weather</h1>
-      <div>
+      <div className="search-container">
         <input
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter city name"
         />
         <button onClick={fetchWeather}> Check weather</button>
       </div>
