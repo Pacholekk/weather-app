@@ -32,6 +32,29 @@ function App() {
   return (
     <div className="App">
       <h1>Weather</h1>
+      <div>
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <button onClick={fetchWeather}> Check weather</button>
+      </div>
+      {loading && <p>Loading ...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {weather && (
+        <div>
+          <h2>{weather.name}</h2>
+          <p>Temperature: {weather.main.temp} °C</p>
+          <p>Feels like: {weather.main.feels_like} °C</p>
+          <p>
+            Humidity: {weather.main.humidity} m<sup>3</sup>{" "}
+          </p>
+          <p>Wind: {weather.wind.speed} km/h</p>
+          <p>{weather.weather[0].description.toUpperCase()}</p>
+        </div>
+      )}
     </div>
   );
 }
