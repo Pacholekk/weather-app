@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, clean weather application built with HTML, CSS, and JavaScript that allows users to check current weather conditions for any location.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for weather by city name
+- Display current temperature, weather conditions, and location
+- Visual representation of weather conditions
+- Responsive design for all devices
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- OpenWeatherMap API for weather data
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
+weather-app/
+├── css/              # Stylesheet files
+│   └── style.css     # Main CSS file
+├── js/               # JavaScript files
+│   └── script.js     # Main JS functionality
+├── index.html        # Main HTML file
+└── README.md         # Project documentation
+Copy
+## How It Works
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Enter a city name in the search box
+2. Click the search button or press Enter
+3. The app fetches weather data from OpenWeatherMap API
+4. Weather information is displayed including:
+   - City name 
+   - Current temperature
+   - Weather description
+   - Weather icon
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Setup and Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
+git clone https://github.com/Pacholekk/weather-app.git
+Copy
+2. Open `index.html` in your browser or set up a simple server
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. To use the weather functionality, you'll need to:
+- Register for a free API key at [OpenWeatherMap](https://openweathermap.org/api)
+- Add your API key to the script.js file
+
+## Screenshots
+
+![Weather App Screenshot](app.png)
+
+## Future Enhancements
+
+- Weather forecast for upcoming days
+- Display additional weather data (humidity, wind speed, etc.)
+- Geolocation to get weather for user's current location
+- Save favorite locations
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Patryk Pacholski - [GitHub](https://github.com/Pacholekk)
