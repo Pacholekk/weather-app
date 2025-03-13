@@ -24,7 +24,7 @@ function App() {
       const data = await response.json();
       setWeather(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Eror has occur");
+      setError(err instanceof Error ? err.message : "Error has occured");
     } finally {
       setLoading(false);
     }
